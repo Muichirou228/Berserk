@@ -26,14 +26,13 @@ Window {
 
     Item {
         id: menuButton
-        width: 70
-        height: 70
+        width: 40
+        height: 40
 
         anchors {
             right: parent.right
             top: parent.top
-            topMargin: 20
-            rightMargin: 20
+            margins: 20
         }
         Rectangle {
             color: "gray"
@@ -42,12 +41,13 @@ Window {
             radius: 5
             Image {
                 source: "../menu.png"
-                width: parent.width * 0.8
-                height: parent.height * 0.8
+                width: parent.width * 0.5
+                height: parent.height * 0.5
                 anchors.centerIn: parent
             }
             MouseArea {
                 anchors.fill: parent
+                hoverEnabled: true
                 onClicked: {
                     if (menu.visible === false) {
                         menu.visible = true;
@@ -109,7 +109,6 @@ Window {
         ScrollView {
             width: 700
             height: 580
-            //visible: false
             contentHeight: 700
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter

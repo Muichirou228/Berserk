@@ -33,6 +33,7 @@ DISTFILES += \
     Berserk.jpg \
     Dahor.png \
     Home.qml \
+    SignUpSignIn.qml \
     Tekur.png \
     catnap.ico \
     guts.png \
