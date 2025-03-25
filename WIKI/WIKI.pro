@@ -11,11 +11,16 @@ RESOURCES += \
         rules.png \
         home.png \
         messengere.png \
+        SignUpSignIn.qml \
         rules1.png \
         guts.png \
         Dahor.png \
         Tekur.png \
-        menu.png
+        back.png \
+        enter.png \
+        tick.png \
+        menu.png \
+        admin.png
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -35,12 +40,16 @@ DISTFILES += \
     Home.qml \
     SignUpSignIn.qml \
     Tekur.png \
+    admin.png \
+    back.png \
     catnap.ico \
+    enter.png \
     guts.png \
     home.png \
     menu.png \
     messengere.png \
     rules.png \
-    rules1.png
+    rules1.png \
+    tick.png
 
 RC_ICONS = catnap.ico
