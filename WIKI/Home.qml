@@ -2,7 +2,9 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Basic
+import QtQuick.Window
 Window {
+    id: homeWindow
     minimumHeight: 700
     minimumWidth: 1000
     maximumHeight: 700
@@ -11,16 +13,7 @@ Window {
     color: "black"
     property bool checkRegistered: false
 
-    StackView {
-        id:stackView
-        initialItem: maincomp
-        anchors.fill: parent
-    }
-
-    Component {
-        id: maincomp
-        Page {
-            Rectangle{
+            Rectangle {
                 color: "black"
                 anchors.fill: parent
                 z: -1000000
@@ -49,7 +42,14 @@ Window {
                             anchors.fill: parent
                             hoverEnabled: true
                             onClicked: {
-                                stackView.replace("../SignUpSignIn.qml", {mainPath: "..\Home.qml"});
+                                homeWindow.hide()
+                                // Создаём окно входа динамически
+                                var component = Qt.createComponent("../SignUpSignIn.qml")
+                                var signInWindow = component.createObject(null)
+                                signInWindow.closing.connect(function() {
+                                    homeWindow.show() // Показываем главное окно при закрытии
+                                })
+                                signInWindow.show()
                             }
                             onEntered: {
                                 adminrect.color = "white";
@@ -280,8 +280,8 @@ Window {
                 }
             }
         }
-    }
 
 
 
-}
+
+
