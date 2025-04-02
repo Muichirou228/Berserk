@@ -1,5 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QSqlDatabase>
+#include <QtSql>
+#include <QtDebug>
+#include <QSqlError>
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +21,24 @@ int main(int argc, char *argv[])
         },
         Qt::QueuedConnection);
     engine.load(url);
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
+    db.setConnectOptions();
+    QString dsn = QString("DRIVER={SQL SERVER};Server=DESKTOP-8L07U6E;Database=WIKI;Trusted_Connection=True;");
+    db.setDatabaseName(dsn);
+    bool ok = db.open();
+
+    if (ok) {
+        qDebug() << "open";
+        QSqlQuery query;
+        if (query.exec("SELECT * FROM [WIKI].[dbo].[accounts]")) {
+            while (query.next()) {
+                qDebug() << query.value(1).toString();
+            }
+        }
+    } else {
+        qDebug() << "EERROR";
+    }
 
     return app.exec();
 }
