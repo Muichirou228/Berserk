@@ -91,7 +91,14 @@ import QtQuick.Controls.Basic
                             anchors.fill: parent
                             hoverEnabled: true
                             onClicked: {
-
+                                regWindow.hide();
+                                // Создаём окно входа динамически
+                                var component = Qt.createComponent("../Enter.qml")
+                                var enterWindow = component.createObject(null)
+                                enterWindow.closing.connect(function() {
+                                    regWindow.show() // Показываем главное окно при закрытии
+                                })
+                                enterWindow.show(); //последняя ошибка, говорит что enterWindow null
                             }
                             onEntered: {
                                 enterrect.color = "white";
@@ -168,7 +175,12 @@ import QtQuick.Controls.Basic
                             anchors.fill: parent
                             hoverEnabled: true
                             onClicked: {
-
+                                var success = database.registerUser(inputLogin.text, inputPassword.text);
+                                if (success) {
+                                    console.log("Registration successful!");
+                                } else {
+                                    console.log("Registration failed!");
+                                }
                             }
                             onEntered: {
                                 regConfirmrect.color = "white";
@@ -181,9 +193,3 @@ import QtQuick.Controls.Basic
                 }
             }
         }
-
-
-
-
-
-

@@ -1,7 +1,8 @@
 QT += quick sql
 
 SOURCES += \
-    Home.cpp
+    Home.cpp \
+    database.cpp
 
 resources.files = Home.qml
 resources.prefix = /$${TARGET}
@@ -37,6 +38,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     Berserk.jpg \
     Dahor.png \
+    Enter.qml \
     Home.qml \
     SignUpSignIn.qml \
     Tekur.png \
@@ -53,3 +55,6 @@ DISTFILES += \
     tick.png
 
 RC_ICONS = catnap.ico
+
+HEADERS += \
+    database.h

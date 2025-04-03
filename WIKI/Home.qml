@@ -49,7 +49,7 @@ Window {
                                 signInWindow.closing.connect(function() {
                                     homeWindow.show() // Показываем главное окно при закрытии
                                 })
-                                signInWindow.show()
+                                signInWindow.show();
                             }
                             onEntered: {
                                 adminrect.color = "white";
