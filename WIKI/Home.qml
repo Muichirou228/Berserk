@@ -11,7 +11,12 @@ Window {
     maximumWidth: 1000
     visible: true
     color: "black"
-    property bool checkRegistered: false
+    property string userName: ""
+
+            StackView {
+                id:stackView
+                anchors.fill: parent
+            }
 
             Rectangle {
                 color: "black"
@@ -59,6 +64,18 @@ Window {
                             }
                         }
                     }
+                }
+
+                Text {
+                    id: userText
+                    font.family: "Verdana"
+                    anchors.left: adminButton.right
+                    anchors.verticalCenter: adminButton.verticalCenter
+                    anchors.margins: 20
+                    font.pixelSize: 18
+                    color: "white"
+                    text: userName
+                    font.bold: true
                 }
 
                 Item {

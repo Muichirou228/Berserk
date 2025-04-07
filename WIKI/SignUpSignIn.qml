@@ -10,7 +10,6 @@ import QtQuick.Controls.Basic
         maximumWidth: 800
         visible: true
         color: "black"
-        property StackView stackView
             Page {
                 anchors.fill: parent
                 Rectangle {
@@ -96,7 +95,7 @@ import QtQuick.Controls.Basic
                                 var component = Qt.createComponent("../Enter.qml")
                                 var enterWindow = component.createObject(null)
                                 enterWindow.closing.connect(function() {
-                                    regWindow.show() // Показываем главное окно при закрытии
+                                    homeWindow.show() // Показываем главное окно при закрытии
                                 })
                                 enterWindow.show(); //последняя ошибка, говорит что enterWindow null
                             }

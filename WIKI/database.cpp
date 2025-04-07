@@ -14,6 +14,7 @@ database::database(QObject *parent) : QObject(parent) {
     }
 }
 
+
 bool database::registerUser(const QString &login, const QString &password) {
     if (!m_db.isOpen()) {
         qDebug() << "DB is not open";
@@ -44,5 +45,26 @@ bool database::registerUser(const QString &login, const QString &password) {
     }
 
     return true;
+}
+
+bool database::enterUser (const QString &login, const QString &password) {
+    if (!m_db.isOpen()){
+        qDebug() << "DB is not open";
+        return false;
+    }
+    QSqlQuery check;
+    check.prepare("SELECT COUNT(*) FROM accounts WHERE login = :login AND password = :password");
+    check.bindValue(":login", login);
+    check.bindValue(":password", password);
+    if (!check.exec() || !check.next()) {
+        qDebug() << "Check failed:" << check.lastError().text();
+        return false;
+    }
+    if (check.value(0).toInt() == 0) {
+        qDebug() << "This user does not exist";
+        return false;
+    } else {
+        return true;
+    }
 }
 

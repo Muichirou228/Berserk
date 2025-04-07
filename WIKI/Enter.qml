@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Basic
     Window {
-        id: regWindow
+        id: enterWindow
         minimumHeight: 500
         minimumWidth: 800
         maximumHeight: 500
@@ -54,7 +54,7 @@ import QtQuick.Controls.Basic
                             anchors.fill: parent
                             hoverEnabled: true
                             onClicked: {
-                                regWindow.close();
+                                enterWindow.close();
                             }
                             onEntered: {
                                 backrect.color = "white";
@@ -82,7 +82,7 @@ import QtQuick.Controls.Basic
 
                 TextField {
                             id: inputLogin
-                            anchors.top: regtext.bottom
+                            anchors.top: entertext.bottom
                             anchors.left: parent.left
                             anchors.topMargin: 35
                             anchors.leftMargin: 200
@@ -133,7 +133,17 @@ import QtQuick.Controls.Basic
                             anchors.fill: parent
                             hoverEnabled: true
                             onClicked: {
-                                //!!!!!
+                                var success = database.enterUser(inputLogin.text, inputPassword.text);
+                                if (success) {
+                                    console.log("Successfuly entered");
+                                    var component = Qt.createComponent("../Home.qml")
+                                    var homeWindow = component.createObject(null, {userName = inputLogin.text})
+
+                                    enterWindow.close();
+                                }
+                                 else {
+                                    console.log("Error");
+                                }
                             }
                             onEntered: {
                                 enterConfirmrect.color = "white";

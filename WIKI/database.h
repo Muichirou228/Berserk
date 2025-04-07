@@ -13,6 +13,8 @@ public:
 
     Q_INVOKABLE bool registerUser (const QString &login, const QString &password);
 
+    Q_INVOKABLE bool enterUser (const QString &login, const QString &password);
+
 private:
     QSqlDatabase m_db;
 };

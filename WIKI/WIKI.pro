@@ -21,7 +21,8 @@ RESOURCES += \
         enter.png \
         tick.png \
         menu.png \
-        admin.png
+        admin.png \
+        Enter.qml
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model

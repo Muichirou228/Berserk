@@ -135,6 +135,7 @@ release/qrc_qmake_qmake_immediate.cpp: release/qmake_qmake_immediate.qrc \
 		../../guts.png \
 		../../messengere.png \
 		../../back.png \
+		../../Enter.qml \
 		../../Dahor.png \
 		../../SignUpSignIn.qml \
 		../../admin.png \
