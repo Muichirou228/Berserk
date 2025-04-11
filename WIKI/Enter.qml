@@ -137,7 +137,7 @@ import QtQuick.Controls.Basic
                                 if (success) {
                                     console.log("Successfuly entered");
                                     var component = Qt.createComponent("../Home.qml")
-                                    var homeWindow = component.createObject(null, {userName = inputLogin.text})
+                                    var homeWindow = component.createObject(null, {homeUserName = inputLogin.text}, {lessonsUserName = inputLogin.text})
 
                                     enterWindow.close();
                                 }

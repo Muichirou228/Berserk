@@ -1,9 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource prefix="/">
 <file alias="Berserk.jpg">C:/Users/79627/Desktop/College/Berserk/WIKI/Berserk.jpg</file>
-<file alias="rules.png">C:/Users/79627/Desktop/College/Berserk/WIKI/rules.png</file>
 <file alias="home.png">C:/Users/79627/Desktop/College/Berserk/WIKI/home.png</file>
-<file alias="messengere.png">C:/Users/79627/Desktop/College/Berserk/WIKI/messengere.png</file>
 <file alias="SignUpSignIn.qml">C:/Users/79627/Desktop/College/Berserk/WIKI/SignUpSignIn.qml</file>
 <file alias="rules1.png">C:/Users/79627/Desktop/College/Berserk/WIKI/rules1.png</file>
 <file alias="guts.png">C:/Users/79627/Desktop/College/Berserk/WIKI/guts.png</file>
@@ -15,5 +13,8 @@
 <file alias="menu.png">C:/Users/79627/Desktop/College/Berserk/WIKI/menu.png</file>
 <file alias="admin.png">C:/Users/79627/Desktop/College/Berserk/WIKI/admin.png</file>
 <file alias="Enter.qml">C:/Users/79627/Desktop/College/Berserk/WIKI/Enter.qml</file>
+<file alias="Lessons.qml">C:/Users/79627/Desktop/College/Berserk/WIKI/Lessons.qml</file>
+<file alias="lessons.png">C:/Users/79627/Desktop/College/Berserk/WIKI/lessons.png</file>
+<file alias="LessonRectangle.qml">C:/Users/79627/Desktop/College/Berserk/WIKI/LessonRectangle.qml</file>
 </qresource>
 </RCC>

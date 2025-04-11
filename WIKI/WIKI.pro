@@ -9,9 +9,7 @@ resources.prefix = /$${TARGET}
 RESOURCES += \
         resources \
         Berserk.jpg \
-        rules.png \
         home.png \
-        messengere.png \
         SignUpSignIn.qml \
         rules1.png \
         guts.png \
@@ -22,7 +20,10 @@ RESOURCES += \
         tick.png \
         menu.png \
         admin.png \
-        Enter.qml
+        Enter.qml \
+        Lessons.qml \
+        lessons.png \
+        LessonRectangle.qml
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -41,6 +42,8 @@ DISTFILES += \
     Dahor.png \
     Enter.qml \
     Home.qml \
+    LessonRectangle.qml \
+    Lessons.qml \
     SignUpSignIn.qml \
     Tekur.png \
     admin.png \
@@ -49,9 +52,8 @@ DISTFILES += \
     enter.png \
     guts.png \
     home.png \
+    lessons.png \
     menu.png \
-    messengere.png \
-    rules.png \
     rules1.png \
     tick.png
 

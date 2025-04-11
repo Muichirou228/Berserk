@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file alias="Berserk.jpg">../../Berserk.jpg</file>
+        <file alias="home.png">../../home.png</file>
+        <file alias="SignUpSignIn.qml">../../SignUpSignIn.qml</file>
+        <file alias="rules1.png">../../rules1.png</file>
+        <file alias="guts.png">../../guts.png</file>
+        <file alias="Dahor.png">../../Dahor.png</file>
+        <file alias="Tekur.png">../../Tekur.png</file>
+        <file alias="back.png">../../back.png</file>
+        <file alias="enter.png">../../enter.png</file>
+        <file alias="tick.png">../../tick.png</file>
+        <file alias="menu.png">../../menu.png</file>
+        <file alias="admin.png">../../admin.png</file>
+        <file alias="Enter.qml">../../Enter.qml</file>
+        <file alias="Lessons.qml">../../Lessons.qml</file>
+        <file alias="lessons.png">../../lessons.png</file>
+        <file alias="Lessonrectangle.qml">../../Lessonrectangle.qml</file>
+    </qresource>
+</RCC>

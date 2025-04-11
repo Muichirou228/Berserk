@@ -64,6 +64,8 @@ DIST          = Berserk.jpg \
 		Dahor.png \
 		Enter.qml \
 		Home.qml \
+		LessonRectangle.qml \
+		Lessons.qml \
 		SignUpSignIn.qml \
 		Tekur.png \
 		admin.png \
@@ -72,9 +74,8 @@ DIST          = Berserk.jpg \
 		enter.png \
 		guts.png \
 		home.png \
+		lessons.png \
 		menu.png \
-		messengere.png \
-		rules.png \
 		rules1.png \
 		tick.png ..\..\database.h ..\..\Home.cpp \
 		..\..\database.cpp
@@ -131,21 +132,22 @@ release/qrc_qmake_resources.cpp: release/qmake_resources.qrc \
 
 release/qrc_qmake_qmake_immediate.cpp: release/qmake_qmake_immediate.qrc \
 		C:/Qt/6.7.2/mingw_64/bin/rcc.exe \
+		../../lessons.png \
 		../../Berserk.jpg \
 		../../guts.png \
-		../../messengere.png \
 		../../back.png \
 		../../Enter.qml \
 		../../Dahor.png \
 		../../SignUpSignIn.qml \
 		../../admin.png \
 		../../menu.png \
-		../../rules.png \
+		../../LessonRectangle.qml \
 		../../enter.png \
 		../../rules1.png \
 		../../home.png \
 		../../Tekur.png \
-		../../tick.png
+		../../tick.png \
+		../../Lessons.qml
 	C:\Qt\6.7.2\mingw_64\bin\rcc.exe -name qmake_qmake_immediate --no-zstd release\qmake_qmake_immediate.qrc -o release\qrc_qmake_qmake_immediate.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
