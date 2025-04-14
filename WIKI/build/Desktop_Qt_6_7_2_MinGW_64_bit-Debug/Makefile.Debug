@@ -60,16 +60,20 @@ OBJECTS       = debug/Home.o \
 		debug/qrc_qmake_qmake_immediate.o \
 		debug/moc_database.o
 
-DIST          = Berserk.jpg \
+DIST          = .gitignore \
+		Berserk.jpg \
 		Dahor.png \
 		Enter.qml \
 		Home.qml \
+		Lesson1.qml \
 		LessonRectangle.qml \
 		Lessons.qml \
 		SignUpSignIn.qml \
 		Tekur.png \
 		admin.png \
 		back.png \
+		cardexample.png \
+		cardstypes.png \
 		catnap.ico \
 		enter.png \
 		guts.png \
@@ -132,13 +136,16 @@ debug/qrc_qmake_resources.cpp: debug/qmake_resources.qrc \
 
 debug/qrc_qmake_qmake_immediate.cpp: debug/qmake_qmake_immediate.qrc \
 		C:/Qt/6.7.2/mingw_64/bin/rcc.exe \
+		../../cardexample.png \
 		../../lessons.png \
 		../../Berserk.jpg \
 		../../guts.png \
 		../../back.png \
 		../../Enter.qml \
 		../../Dahor.png \
+		../../Lesson1.qml \
 		../../SignUpSignIn.qml \
+		../../cardstypes.png \
 		../../admin.png \
 		../../menu.png \
 		../../LessonRectangle.qml \

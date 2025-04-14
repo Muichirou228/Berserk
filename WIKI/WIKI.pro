@@ -23,7 +23,10 @@ RESOURCES += \
         Enter.qml \
         Lessons.qml \
         lessons.png \
-        LessonRectangle.qml
+        LessonRectangle.qml \
+        Lesson1.qml \
+        cardstypes.png \
+        cardexample.png
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -38,16 +41,20 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    .gitignore \
     Berserk.jpg \
     Dahor.png \
     Enter.qml \
     Home.qml \
+    Lesson1.qml \
     LessonRectangle.qml \
     Lessons.qml \
     SignUpSignIn.qml \
     Tekur.png \
     admin.png \
     back.png \
+    cardexample.png \
+    cardstypes.png \
     catnap.ico \
     enter.png \
     guts.png \

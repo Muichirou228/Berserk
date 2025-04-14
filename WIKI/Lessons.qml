@@ -75,41 +75,43 @@ Rectangle {
         }
     }
 
+    Text {
+        id: lessonText
+        font.family: "Verdana"
+        anchors.top: berserkWord.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 30
+        font.pixelSize: 48
+        color: "white"
+        text: "Уроки"
+        font.bold: true
+    }
 
-        Text {
-            id: lessonText
-            font.family: "Verdana"
-            anchors.top: berserkWord.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.topMargin: 30
-            font.pixelSize: 48
-            color: "white"
-            text: "Уроки"
-            font.bold: true
-        }
-
-        Item {
-            id: lessonList
-            width: parent.width * 0.7
-            height: 100
-            anchors.top: lessonText.bottom
-            anchors.topMargin: 30
-            anchors.horizontalCenter: parent.horizontalCenter
-            LessonRectangle {
-                id: firstLesson
-                lessonName: "1. Начало"
-            }
-            LessonRectangle {
-                id: secondLesson
-                anchors.top: firstLesson.bottom
-                lessonName: "2. Игровой процесс"
-            }
-            LessonRectangle {
-                id: thirdLesson
-                anchors.top: secondLesson.bottom
-                lessonName: "3. Модификаторы"
+    Item {
+        id: lessonList
+        width: parent.width * 0.7
+        height: 100
+        anchors.top: lessonText.bottom
+        anchors.topMargin: 30
+        anchors.horizontalCenter: parent.horizontalCenter
+        LessonRectangle {
+            id: firstLesson
+            lessonName: "1. Начало"
+            onClicked: {
+                stackViewForPages.push("../Lesson1.qml");
             }
         }
+        LessonRectangle {
+            id: secondLesson
+            anchors.top: firstLesson.bottom
+            lessonName: "2. Игровой процесс"
+        }
+        LessonRectangle {
+            id: thirdLesson
+            anchors.top: secondLesson.bottom
+            lessonName: "3. Модификаторы"
+        }
+    }
 
     Item {
         id: menuButton

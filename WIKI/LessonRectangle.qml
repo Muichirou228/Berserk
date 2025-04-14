@@ -4,6 +4,7 @@ Rectangle {
     id: root
     property string lessonName;
     property string previousLesson;
+    signal clicked()
     color: "gray"
     width: parent.width
     radius: 10
@@ -23,6 +24,9 @@ Rectangle {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
+        onClicked: {
+            root.clicked();
+        }
         onEntered: {
             root.color = "#708090";
         }

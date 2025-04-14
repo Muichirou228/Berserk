@@ -14,7 +14,6 @@ database::database(QObject *parent) : QObject(parent) {
     }
 }
 
-
 bool database::registerUser(const QString &login, const QString &password) {
     if (!m_db.isOpen()) {
         qDebug() << "DB is not open";

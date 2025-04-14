@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     database db;
-
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/WIKI/Home.qml"));
     QObject::connect(
