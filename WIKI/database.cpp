@@ -14,6 +14,10 @@ database::database(QObject *parent) : QObject(parent) {
     }
 }
 
+QString database::getUserName() {
+    return userName;
+}
+
 bool database::registerUser(const QString &login, const QString &password) {
     if (!m_db.isOpen()) {
         qDebug() << "DB is not open";
@@ -42,7 +46,6 @@ bool database::registerUser(const QString &login, const QString &password) {
         qDebug() << "Registration failed: " << registerQuery.lastError().text();
         return false;
     }
-
     return true;
 }
 
@@ -63,6 +66,21 @@ bool database::enterUser (const QString &login, const QString &password) {
         qDebug() << "This user does not exist";
         return false;
     } else {
+        QSqlQuery username;
+        username.prepare("SELECT login FROM accounts WHERE login = :login");
+        username.bindValue(":login", login);
+
+        if (!username.exec()) {
+            qDebug() << "Username query failed:" << username.lastError().text();
+            return false;
+        }
+
+        if (!username.next()) {
+            qDebug() << "No user found after count check (race condition?)";
+            return false;
+        }
+
+        this->userName = username.value(0).toString();
         return true;
     }
 }

@@ -40,7 +40,8 @@ constexpr auto qt_meta_stringdata_CLASSdatabaseENDCLASS = QtMocHelpers::stringDa
     "",
     "login",
     "password",
-    "enterUser"
+    "enterUser",
+    "getUserName"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -53,7 +54,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSdatabaseENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,12 +62,14 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSdatabaseENDCLASS[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   26,    2, 0x02,    1 /* Public */,
-       5,    2,   31,    2, 0x02,    4 /* Public */,
+       1,    2,   32,    2, 0x02,    1 /* Public */,
+       5,    2,   37,    2, 0x02,    4 /* Public */,
+       6,    0,   42,    2, 0x02,    7 /* Public */,
 
  // methods: parameters
     QMetaType::Bool, QMetaType::QString, QMetaType::QString,    3,    4,
     QMetaType::Bool, QMetaType::QString, QMetaType::QString,    3,    4,
+    QMetaType::QString,
 
        0        // eod
 };
@@ -87,7 +90,9 @@ Q_CONSTINIT const QMetaObject database::staticMetaObject = { {
         // method 'enterUser'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'getUserName'
+        QtPrivate::TypeAndForceComplete<QString, std::false_type>
     >,
     nullptr
 } };
@@ -102,6 +107,8 @@ void database::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 1: { bool _r = _t->enterUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 2: { QString _r = _t->getUserName();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
     }
@@ -126,13 +133,13 @@ int database::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

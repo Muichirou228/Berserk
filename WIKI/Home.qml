@@ -11,7 +11,7 @@ Window {
     maximumWidth: 1000
     visible: true
     color: "black"
-    property string homeUserName: ""
+    property string homeUserName;
     StackView {
         id:stackViewForPages
         anchors.fill: parent
@@ -49,11 +49,10 @@ Window {
                         hoverEnabled: true
                         onClicked: {
                             homeWindow.hide()
-                            // Создаём окно входа динамически
                             var component = Qt.createComponent("../SignUpSignIn.qml")
                             var signInWindow = component.createObject(null)
                             signInWindow.closing.connect(function() {
-                                homeWindow.show() // Показываем главное окно при закрытии
+                                homeWindow.show()
                             })
                             signInWindow.show();
                         }
@@ -278,7 +277,7 @@ Window {
                                 cursorShape: Qt.PointingHandCursor
                                 anchors.fill: parent
                             }
-                    }
+                        }
                     }
                     Rectangle {
                         Layout.preferredHeight: 75
@@ -296,7 +295,7 @@ Window {
                                     } else if (menu.visible === true) {
                                         menu.visible = false;
                                     }
-                                    stackViewForPages.push("../Lessons.qml", {lessonsUserName : userText.text});
+                                    stackViewForPages.push("../Lessons.qml");
                                 }
                             }
                         }

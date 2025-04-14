@@ -136,9 +136,7 @@ color: "black"
                         var success = database.enterUser(inputLogin.text, inputPassword.text);
                         if (success) {
                             console.log("Successfuly entered");
-                            var component = Qt.createComponent("../Home.qml")
                             enterWindow.close();
-                            var homeWindow = component.createObject(null, {homeUserName = inputLogin.text}, {lessonsUserName = inputLogin.text})
                         }
                          else {
                             console.log("Error");

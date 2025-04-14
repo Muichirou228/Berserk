@@ -6,7 +6,11 @@ import QtQuick.Window
 
 Rectangle {
     color: "black"
+    id: lessonsWindow
     property string lessonsUserName;
+    Component.onCompleted: {
+        lessonsUserName = database.getUserName();
+    }
     Item {
         id: adminButton
         width: 40

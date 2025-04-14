@@ -93,9 +93,12 @@ color: "black"
                     var component = Qt.createComponent("../Enter.qml")
                     var enterWindow = component.createObject(null)
                     enterWindow.closing.connect(function() {
-                        homeWindow.show() // Показываем главное окно при закрытии
+                        homeWindow.show();
+                        homeWindow.homeUserName = database.getUserName();
+                        lessonsWindow.lessonsUserName = database.getUserName();
+
                     })
-                    enterWindow.show(); //последняя ошибка, говорит что enterWindow null
+                    enterWindow.show();
                 }
                 onEntered: {
                     enterrect.color = "white";
