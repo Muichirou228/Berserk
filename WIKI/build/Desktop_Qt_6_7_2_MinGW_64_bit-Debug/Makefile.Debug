@@ -66,6 +66,7 @@ DIST          = .gitignore \
 		Enter.qml \
 		Home.qml \
 		Lesson1.qml \
+		Lesson2.qml \
 		LessonRectangle.qml \
 		Lessons.qml \
 		SignUpSignIn.qml \
@@ -73,6 +74,7 @@ DIST          = .gitignore \
 		admin.png \
 		back.png \
 		cardexample.png \
+		cardsontable.png \
 		cardstypes.png \
 		catnap.ico \
 		enter.png \
@@ -80,6 +82,8 @@ DIST          = .gitignore \
 		home.png \
 		lessons.png \
 		menu.png \
+		movecard.png \
+		opennotopencard.png \
 		rules1.png \
 		tick.png ..\..\database.h ..\..\Home.cpp \
 		..\..\database.cpp
@@ -138,6 +142,7 @@ debug/qrc_qmake_qmake_immediate.cpp: debug/qmake_qmake_immediate.qrc \
 		C:/Qt/6.7.2/mingw_64/bin/rcc.exe \
 		../../cardexample.png \
 		../../lessons.png \
+		../../opennotopencard.png \
 		../../Berserk.jpg \
 		../../guts.png \
 		../../back.png \
@@ -149,7 +154,10 @@ debug/qrc_qmake_qmake_immediate.cpp: debug/qmake_qmake_immediate.qrc \
 		../../admin.png \
 		../../menu.png \
 		../../LessonRectangle.qml \
+		../../cardsontable.png \
+		../../movecard.png \
 		../../enter.png \
+		../../Lesson2.qml \
 		../../rules1.png \
 		../../home.png \
 		../../Tekur.png \

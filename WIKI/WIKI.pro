@@ -26,7 +26,11 @@ RESOURCES += \
         LessonRectangle.qml \
         Lesson1.qml \
         cardstypes.png \
-        cardexample.png
+        cardexample.png \
+        Lesson2.qml \
+        cardsontable.png \
+        opennotopencard.png \
+        movecard.png
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -47,6 +51,7 @@ DISTFILES += \
     Enter.qml \
     Home.qml \
     Lesson1.qml \
+    Lesson2.qml \
     LessonRectangle.qml \
     Lessons.qml \
     SignUpSignIn.qml \
@@ -54,6 +59,7 @@ DISTFILES += \
     admin.png \
     back.png \
     cardexample.png \
+    cardsontable.png \
     cardstypes.png \
     catnap.ico \
     enter.png \
@@ -61,6 +67,8 @@ DISTFILES += \
     home.png \
     lessons.png \
     menu.png \
+    movecard.png \
+    opennotopencard.png \
     rules1.png \
     tick.png
 

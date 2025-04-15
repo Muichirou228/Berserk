@@ -53,6 +53,8 @@ Window {
                             var signInWindow = component.createObject(null)
                             signInWindow.closing.connect(function() {
                                 homeWindow.show()
+                                homeWindow.homeUserName = database.getUserName();
+                                lessonsWindow.lessonsUserName = database.getUserName();
                             })
                             signInWindow.show();
                         }

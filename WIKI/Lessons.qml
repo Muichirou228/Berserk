@@ -40,6 +40,8 @@ Rectangle {
                     var signInWindow = component.createObject(null)
                     signInWindow.closing.connect(function() {
                         homeWindow.show()
+                        homeWindow.homeUserName = database.getUserName();
+                        lessonsWindow.lessonsUserName = database.getUserName();
                     })
                     signInWindow.show();
                 }
@@ -109,6 +111,9 @@ Rectangle {
             id: secondLesson
             anchors.top: firstLesson.bottom
             lessonName: "2. Игровой процесс"
+            onClicked: {
+                stackViewForPages.push("../Lesson2.qml");
+            }
         }
         LessonRectangle {
             id: thirdLesson
