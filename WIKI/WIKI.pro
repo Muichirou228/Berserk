@@ -30,7 +30,8 @@ RESOURCES += \
         Lesson2.qml \
         cardsontable.png \
         opennotopencard.png \
-        movecard.png
+        movecard.png \
+        Lesson3.qml
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -52,6 +53,7 @@ DISTFILES += \
     Home.qml \
     Lesson1.qml \
     Lesson2.qml \
+    Lesson3.qml \
     LessonRectangle.qml \
     Lessons.qml \
     SignUpSignIn.qml \

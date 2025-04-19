@@ -67,6 +67,7 @@ DIST          = .gitignore \
 		Home.qml \
 		Lesson1.qml \
 		Lesson2.qml \
+		Lesson3.qml \
 		LessonRectangle.qml \
 		Lessons.qml \
 		SignUpSignIn.qml \
@@ -150,6 +151,7 @@ debug/qrc_qmake_qmake_immediate.cpp: debug/qmake_qmake_immediate.qrc \
 		../../Dahor.png \
 		../../Lesson1.qml \
 		../../SignUpSignIn.qml \
+		../../Lesson3.qml \
 		../../cardstypes.png \
 		../../admin.png \
 		../../menu.png \

@@ -119,6 +119,9 @@ Rectangle {
             id: thirdLesson
             anchors.top: secondLesson.bottom
             lessonName: "3. Модификаторы"
+            onClicked: {
+                stackViewForPages.push("../Lesson3.qml");
+            }
         }
     }
 
