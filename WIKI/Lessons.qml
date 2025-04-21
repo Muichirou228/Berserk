@@ -8,7 +8,7 @@ Rectangle {
     color: "black"
     id: lessonsWindow
     property string lessonsUserName;
-    Component.onCompleted: {
+    Component.onCompleted:  {
         lessonsUserName = database.getUserName();
     }
     Item {
@@ -39,10 +39,9 @@ Rectangle {
                     var component = Qt.createComponent("../SignUpSignIn.qml")
                     var signInWindow = component.createObject(null)
                     signInWindow.closing.connect(function() {
-                        homeWindow.show()
+                        stackViewForPages.pop(null);
                         homeWindow.homeUserName = database.getUserName();
-                        lessonsWindow.lessonsUserName = database.getUserName();
-                        //testsWindow.testsUserName = database.getUserName();
+                        homeWindow.show()
                     })
                     signInWindow.show();
                 }

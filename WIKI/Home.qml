@@ -56,8 +56,6 @@ Window {
                             signInWindow.closing.connect(function() {
                                 homeWindow.show();
                                 homeWindow.homeUserName = database.getUserName();
-                                //lessonsWindow.lessonsUserName = database.getUserName();
-                                //testsWindow.testsUserName = database.getUserName();
                             })
                             signInWindow.show();
                         }

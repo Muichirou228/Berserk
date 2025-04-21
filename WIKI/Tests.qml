@@ -42,10 +42,9 @@ Rectangle {
                     var component = Qt.createComponent("../SignUpSignIn.qml")
                     var signInWindow = component.createObject(null)
                     signInWindow.closing.connect(function() {
-                        homeWindow.show()
-                        testsWindow.testsUserName = database.getUserName();
+                        stackViewForPages.pop(null);
                         homeWindow.homeUserName = database.getUserName();
-                        //lessonsWindow.lessonsUserName = database.getUserName();
+                        homeWindow.show()
                     })
                     signInWindow.show();
                 }
@@ -255,7 +254,7 @@ Rectangle {
                             stackViewForPages.push("../Lessons.qml");
                         }
                     }
-                    }
+                }
             }
             Rectangle {
                 Layout.preferredHeight: 65
