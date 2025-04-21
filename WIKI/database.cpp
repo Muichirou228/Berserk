@@ -80,8 +80,35 @@ bool database::enterUser (const QString &login, const QString &password) {
             return false;
         }
 
+        QSqlQuery testProcentage;
+        testProcentage.prepare("SELECT test1_progress, test2_progress, test3_progress FROM tests_info INNER JOIN accounts ON accounts.id = tests_info.id WHERE tests_info.id = (SELECT id FROM accounts WHERE login = :login)");
+        testProcentage.bindValue(":login", login);
+        if (!testProcentage.exec()) {
+            qDebug() << "TestProcentage query failed:" << username.lastError().text();
+            return false;
+        }
+
+        if (!testProcentage.next()) {
+            qDebug() << "ERROR with No info";
+            return false;
+        }
+        this->test1 = testProcentage.value(0).toString();
+        this->test2 = testProcentage.value(1).toString();
+        this->test3 = testProcentage.value(2).toString();
         this->userName = username.value(0).toString();
         return true;
     }
+}
+
+QString database::getFirstTestProcent() {
+    return test1;
+}
+
+QString database::getSecondTestProcent() {
+    return test2;
+}
+
+QString database::getThirdTestProcent() {
+    return test3;
 }
 

@@ -31,7 +31,10 @@ RESOURCES += \
         cardsontable.png \
         opennotopencard.png \
         movecard.png \
-        Lesson3.qml
+        Lesson3.qml \
+        test.png \
+        Tests.qml \
+        TestRectangle.qml
 
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -58,6 +61,8 @@ DISTFILES += \
     Lessons.qml \
     SignUpSignIn.qml \
     Tekur.png \
+    TestRectangle.qml \
+    Tests.qml \
     admin.png \
     back.png \
     cardexample.png \
@@ -72,6 +77,7 @@ DISTFILES += \
     movecard.png \
     opennotopencard.png \
     rules1.png \
+    test.png \
     tick.png
 
 RC_ICONS = catnap.ico

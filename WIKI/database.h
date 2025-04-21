@@ -17,9 +17,18 @@ public:
 
     Q_INVOKABLE QString getUserName ();
 
+    Q_INVOKABLE QString getFirstTestProcent();
+
+    Q_INVOKABLE QString getSecondTestProcent();
+
+    Q_INVOKABLE QString getThirdTestProcent();
+
 private:
     QSqlDatabase m_db;
     QString userName;
+    QString test1;
+    QString test2;
+    QString test3;
 };
 
 #endif // DATABASE_H

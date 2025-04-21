@@ -3,7 +3,6 @@ import QtQuick
 Rectangle {
     id: root
     property string lessonName;
-    property string previousLesson;
     signal clicked()
     color: "gray"
     width: parent.width

@@ -12,11 +12,13 @@ Window {
     visible: true
     color: "black"
     property string homeUserName;
+
     StackView {
         id:stackViewForPages
         anchors.fill: parent
         initialItem: homePage
     }
+
     Component {
         id: homePage
         Rectangle {
@@ -52,9 +54,10 @@ Window {
                             var component = Qt.createComponent("../SignUpSignIn.qml")
                             var signInWindow = component.createObject(null)
                             signInWindow.closing.connect(function() {
-                                homeWindow.show()
+                                homeWindow.show();
                                 homeWindow.homeUserName = database.getUserName();
-                                lessonsWindow.lessonsUserName = database.getUserName();
+                                //lessonsWindow.lessonsUserName = database.getUserName();
+                                //testsWindow.testsUserName = database.getUserName();
                             })
                             signInWindow.show();
                         }
@@ -308,12 +311,14 @@ Window {
                         color: "transparent"
                         Image {
                             anchors.fill: parent
-                            source: "../rules1.png"
+                            source: "../test.png"
                             MouseArea {
                                 cursorShape: Qt.PointingHandCursor
                                 anchors.fill: parent
                                 onClicked: {
-                                    //!!!
+                                    if (database.getUserName() !== "") {
+                                        stackViewForPages.push("../Tests.qml");
+                                    }
                                 }
                             }
                         }

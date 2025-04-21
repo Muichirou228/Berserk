@@ -42,6 +42,7 @@ Rectangle {
                         homeWindow.show()
                         homeWindow.homeUserName = database.getUserName();
                         lessonsWindow.lessonsUserName = database.getUserName();
+                        //testsWindow.testsUserName = database.getUserName();
                     })
                     signInWindow.show();
                 }
@@ -237,7 +238,7 @@ Rectangle {
                             } else if (menu.visible === true) {
                                 menu.visible = false;
                             }
-                            stackViewForPages.pop();
+                            stackViewForPages.pop(null);
                         }
                     }
                 }
@@ -261,12 +262,14 @@ Rectangle {
                 color: "transparent"
                 Image {
                     anchors.fill: parent
-                    source: "../rules1.png"
+                    source: "../test.png"
                     MouseArea {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            //!!!
+                            if (database.getUserName() !== "") {
+                                stackViewForPages.push("../Tests.qml");
+                            }
                         }
                     }
                 }
