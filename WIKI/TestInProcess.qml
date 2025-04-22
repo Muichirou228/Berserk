@@ -1,0 +1,81 @@
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Controls.Basic
+
+Window {
+    id: testWindow
+    minimumHeight: 500
+    minimumWidth: 400
+    maximumHeight: 500
+    maximumWidth: 400
+    visible: true
+    color: "black"
+    property string testName
+    StackView {
+        id: stackViewForQuestionsInTest
+        initialItem: initComp
+        anchors.fill: parent
+    }
+    Component {
+        id: initComp
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+        Item {
+            id: backButton
+            width: 40
+            height: 40
+            anchors {
+                left: parent.left
+                top: parent.top
+                margins: 30
+            }
+            Rectangle {
+                color: "gray"
+                id: backrect
+                anchors.fill: parent
+                radius: 5
+                Image {
+                    source: "../back.png"
+                    width: parent.width * 0.5
+                    height: parent.height * 0.5
+                    anchors.centerIn: parent
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onClicked: {
+                        testWindow.close();
+                    }
+                    onEntered: {
+                        backrect.color = "white";
+                    }
+                    onExited: {
+                        backrect.color = "gray";
+                    }
+                }
+            }
+        }
+        Item {
+            id: testNameComponent
+            width: 200
+            Text {
+                color: "white"
+                font.family: "Verdana"
+                font.pixelSize: 40
+                width: parent.width
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    top: parent.top
+                    topMargin: 75
+                }
+                wrapMode: Text.WordWrap
+                font.bold: true
+                text: testName
+            }
+        }
+        }
+    }
+}
+

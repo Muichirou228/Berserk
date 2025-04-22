@@ -72,6 +72,7 @@ DIST          = .gitignore \
 		Lessons.qml \
 		SignUpSignIn.qml \
 		Tekur.png \
+		TestInProcess.qml \
 		TestRectangle.qml \
 		Tests.qml \
 		admin.png \
@@ -161,6 +162,7 @@ debug/qrc_qmake_qmake_immediate.cpp: debug/qmake_qmake_immediate.qrc \
 		../../cardstypes.png \
 		../../admin.png \
 		../../menu.png \
+		../../TestInProcess.qml \
 		../../LessonRectangle.qml \
 		../../cardsontable.png \
 		../../movecard.png \

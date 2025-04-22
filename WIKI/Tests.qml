@@ -44,7 +44,7 @@ Rectangle {
                     signInWindow.closing.connect(function() {
                         stackViewForPages.pop(null);
                         homeWindow.homeUserName = database.getUserName();
-                        homeWindow.show()
+                        homeWindow.show();
                     })
                     signInWindow.show();
                 }
@@ -106,6 +106,16 @@ Rectangle {
             id: firstTest
             questionsCountProp: "10"
             testNameProp: "Тест по теме <Начало>"
+            onClicked: {
+                homeWindow.hide()
+                var component = Qt.createComponent("../TestInProcess.qml")
+                var TestInProcessWindow = component.createObject(null, {testName : "Начало"})
+                TestInProcessWindow.closing.connect(function() {
+                    stackViewForPages.pop(null, {immediate: true});
+                    homeWindow.show();
+                })
+                TestInProcessWindow.show();
+            }
         }
 
         TestRectangle {

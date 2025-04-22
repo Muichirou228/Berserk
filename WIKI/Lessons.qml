@@ -41,7 +41,7 @@ Rectangle {
                     signInWindow.closing.connect(function() {
                         stackViewForPages.pop(null);
                         homeWindow.homeUserName = database.getUserName();
-                        homeWindow.show()
+                        homeWindow.show();
                     })
                     signInWindow.show();
                 }

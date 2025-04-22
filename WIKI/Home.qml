@@ -12,24 +12,24 @@ Window {
     visible: true
     color: "black"
     property string homeUserName;
-
     StackView {
         id:stackViewForPages
         anchors.fill: parent
         initialItem: homePage
+        pushEnter: Transition { enabled: false }
+        pushExit: Transition { enabled: false }
+        popEnter: Transition { enabled: false }
+        popExit: Transition { enabled: false }
     }
-
     Component {
         id: homePage
         Rectangle {
             color: "black"
             anchors.fill: parent
-            z: -1000000
             Item {
                 id: adminButton
                 width: 40
                 height: 40
-
                 anchors {
                     left: parent.left
                     top: parent.top
