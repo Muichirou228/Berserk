@@ -237,7 +237,7 @@ Rectangle {
                             } else if (menu.visible === true) {
                                 menu.visible = false;
                             }
-                            stackViewForPages.pop(null);
+                            stackViewForPages.pop();
                         }
                     }
                 }

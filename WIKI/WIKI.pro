@@ -2,7 +2,8 @@ QT += quick sql
 
 SOURCES += \
     Home.cpp \
-    database.cpp
+    database.cpp \
+    testmanager.cpp
 
 resources.files = Home.qml
 resources.prefix = /$${TARGET}
@@ -84,4 +85,5 @@ DISTFILES += \
 RC_ICONS = catnap.ico
 
 HEADERS += \
-    database.h
+    database.h \
+    testmanager.h

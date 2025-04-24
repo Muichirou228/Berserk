@@ -105,13 +105,14 @@ Rectangle {
         TestRectangle {
             id: firstTest
             questionsCountProp: "10"
-            testNameProp: "Тест по теме <Начало>"
+            testNameProp: "Тест <Начало>"
             onClicked: {
                 homeWindow.hide()
                 var component = Qt.createComponent("../TestInProcess.qml")
                 var TestInProcessWindow = component.createObject(null, {testName : "Начало"})
                 TestInProcessWindow.closing.connect(function() {
-                    stackViewForPages.pop(null, {immediate: true});
+                    stackViewForPages.pop();
+                    stackViewForPages.pop();
                     homeWindow.show();
                 })
                 TestInProcessWindow.show();
@@ -122,14 +123,14 @@ Rectangle {
             id: secondTest
             anchors.top: firstTest.bottom
             questionsCountProp: "10"
-            testNameProp: "Тест по теме <Игровой процесс>"
+            testNameProp: "Тест <Игровой процесс>"
         }
 
         TestRectangle {
             id: thirdTest
             anchors.top: secondTest.bottom
             questionsCountProp: "5"
-            testNameProp: "Тест по теме <Модификаторы>"
+            testNameProp: "Тест <Модификаторы>"
         }
     }
 
@@ -245,7 +246,8 @@ Rectangle {
                             } else if (menu.visible === true) {
                                 menu.visible = false;
                             }
-                            stackViewForPages.pop(null);
+                            stackViewForPages.pop();
+                            stackViewForPages.pop();
                         }
                     }
                 }
@@ -261,7 +263,7 @@ Rectangle {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            stackViewForPages.push("../Lessons.qml");
+                            stackViewForPages.pop();
                         }
                     }
                 }

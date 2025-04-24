@@ -16,10 +16,6 @@ Window {
         id:stackViewForPages
         anchors.fill: parent
         initialItem: homePage
-        pushEnter: Transition { enabled: false }
-        pushExit: Transition { enabled: false }
-        popEnter: Transition { enabled: false }
-        popExit: Transition { enabled: false }
     }
     Component {
         id: homePage
@@ -315,6 +311,7 @@ Window {
                                 anchors.fill: parent
                                 onClicked: {
                                     if (database.getUserName() !== "") {
+                                        stackViewForPages.push("../Lessons.qml");
                                         stackViewForPages.push("../Tests.qml");
                                     }
                                 }

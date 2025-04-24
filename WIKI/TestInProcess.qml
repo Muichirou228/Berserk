@@ -57,25 +57,24 @@ Window {
                 }
             }
         }
-        Item {
+        Text {
             id: testNameComponent
-            width: 200
-            Text {
-                color: "white"
-                font.family: "Verdana"
-                font.pixelSize: 40
-                width: parent.width
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    top: parent.top
-                    topMargin: 75
-                }
-                wrapMode: Text.WordWrap
-                font.bold: true
-                text: testName
+            color: "white"
+            font.family: "Verdana"
+            font.pixelSize: 40
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+                topMargin: 75
             }
-        }
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+            font.bold: true
+            text: testName
         }
     }
+    }
 }
+
 
