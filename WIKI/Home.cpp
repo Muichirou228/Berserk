@@ -6,11 +6,14 @@
 #include <QtDebug>
 #include <QSqlError>
 #include "database.h"
+#include "testmanager.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     database db;
+    db.setUserName("123");
+    testmanager TM;
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/WIKI/Home.qml"));
     QObject::connect(
@@ -23,6 +26,7 @@ int main(int argc, char *argv[])
         },
         Qt::QueuedConnection);
     engine.rootContext()->setContextProperty("database", &db);
+    engine.rootContext()->setContextProperty("TM", &TM);
     engine.load(url);
 
     return app.exec();

@@ -12,6 +12,7 @@ Window {
     visible: true
     color: "black"
     property string homeUserName;
+
     StackView {
         id:stackViewForPages
         anchors.fill: parent

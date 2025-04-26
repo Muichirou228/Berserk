@@ -36,7 +36,8 @@ RESOURCES += \
         test.png \
         Tests.qml \
         TestRectangle.qml \
-        TestInProcess.qml
+        TestInProcess.qml \
+        QuestionPage.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -60,6 +61,7 @@ DISTFILES += \
     Lesson3.qml \
     LessonRectangle.qml \
     Lessons.qml \
+    QuestionPage.qml \
     SignUpSignIn.qml \
     Tekur.png \
     TestInProcess.qml \

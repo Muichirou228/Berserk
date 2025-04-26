@@ -4,6 +4,15 @@ QVariantList testmanager::questions() const {
     return m_questions;
 }
 
+void testmanager::setCurrentQuestionIndex(int index) {
+    m_currentQuestionIndex = index;
+    emit currentQuestionIndexChanged();
+}
+
+int testmanager::currentQuestionIndex() const {
+    return m_currentQuestionIndex;
+}
+
 void testmanager::setQuestionsAndAnswers(int index) {
     if (index == 1) {
         QVariantMap question1;
@@ -22,4 +31,10 @@ void testmanager::setQuestionsAndAnswers(int index) {
         question3["correct"] = "6";
         m_questions.append(question3);
     }
+}
+
+QVariantMap testmanager::getCurrentQuestion() {
+    if(m_currentQuestionIndex >= 0 && m_currentQuestionIndex < m_questions.size()) {
+        return m_questions[m_currentQuestionIndex].toMap();
+    } return QVariantMap();
 }

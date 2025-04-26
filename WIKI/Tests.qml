@@ -108,6 +108,7 @@ Rectangle {
             testNameProp: "Тест <Начало>"
             onClicked: {
                 homeWindow.hide()
+                TM.setQuestionsAndAnswers(1);
                 var component = Qt.createComponent("../TestInProcess.qml")
                 var TestInProcessWindow = component.createObject(null, {testName : "Начало"})
                 TestInProcessWindow.closing.connect(function() {

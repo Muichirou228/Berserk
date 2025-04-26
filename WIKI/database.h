@@ -23,6 +23,8 @@ public:
 
     Q_INVOKABLE QString getThirdTestProcent();
 
+    void setUserName(QString US);
+
 private:
     QSqlDatabase m_db;
     QString userName;

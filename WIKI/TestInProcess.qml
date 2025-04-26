@@ -12,69 +12,23 @@ Window {
     visible: true
     color: "black"
     property string testName
-    StackView {
-        id: stackViewForQuestionsInTest
-        initialItem: initComp
-        anchors.fill: parent
-    }
-    Component {
-        id: initComp
     Rectangle {
         anchors.fill: parent
-        color: "black"
-        Item {
-            id: backButton
-            width: 40
-            height: 40
-            anchors {
-                left: parent.left
-                top: parent.top
-                margins: 30
-            }
-            Rectangle {
-                color: "gray"
-                id: backrect
-                anchors.fill: parent
-                radius: 5
-                Image {
-                    source: "../back.png"
-                    width: parent.width * 0.5
-                    height: parent.height * 0.5
-                    anchors.centerIn: parent
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    onClicked: {
-                        testWindow.close();
-                    }
-                    onEntered: {
-                        backrect.color = "white";
-                    }
-                    onExited: {
-                        backrect.color = "gray";
-                    }
-                }
+        color: "black" 
+        StackView {
+            id: stackViewForQuestions
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: 350
+            height: 400
+            anchors.topMargin: 10
+            initialItem: QuestionPage {
+                questionprop: TM.getCurrentQuestion().question;
+                answers: TM.getCurrentQuestion().answers;
             }
         }
-        Text {
-            id: testNameComponent
-            color: "white"
-            font.family: "Verdana"
-            font.pixelSize: 40
-            anchors {
-                left: parent.left
-                right: parent.right
-                top: parent.top
-                topMargin: 75
-            }
-            horizontalAlignment: Text.AlignHCenter
-            wrapMode: Text.WordWrap
-            font.bold: true
-            text: testName
-        }
-    }
     }
 }
+
 
 
