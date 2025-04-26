@@ -46,6 +46,7 @@ Page {
                     id: radioDelegate
                     width: answersColumn.width
                     height: 40
+                    checked: modelData === TM.getSavedAnswer()
                     topPadding: 0
                     bottomPadding: 0
                     indicator: Rectangle {
@@ -77,7 +78,7 @@ Page {
                     background: Rectangle {
                         color: "transparent"
                     }
-                    onClicked: TM.checkIfCorrect(modelData);
+                    onClicked: TM.saveAnswer(modelData);
                 }
             }
         }

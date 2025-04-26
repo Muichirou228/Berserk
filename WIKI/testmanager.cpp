@@ -22,6 +22,7 @@ void testmanager::clearEverything() {
     m_questions.clear();
     m_currentQuestionIndex = 0;
     correctAnswersCount = 0;
+    m_answers.clear();
 }
 
 void testmanager::plusIndex() {
@@ -34,7 +35,7 @@ void testmanager::plusIndex() {
 void testmanager::minusIndex() {
     if(m_currentQuestionIndex > 0) {
         m_currentQuestionIndex--;
-        emit currentQuestionIndexChanged(); // Важно испускать сигнал
+        emit currentQuestionIndexChanged();
     }
 }
 
@@ -58,7 +59,17 @@ void testmanager::checkIfCorrect(QString answer) {
     QVariantMap question = getCurrentQuestion();
     if (question.value("correct", "").toString() == answer) {
         correctAnswersCount++;
+    } else {
+        correctAnswersCount--;
     }
+}
+
+void testmanager::saveAnswer(QString answer) {
+    m_answers[m_currentQuestionIndex] = answer;
+}
+
+QString testmanager::getSavedAnswer() {
+    return m_answers.value(m_currentQuestionIndex, "");
 }
 
 void testmanager::setQuestionsAndAnswers(int index) {

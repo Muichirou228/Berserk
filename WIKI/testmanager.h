@@ -14,6 +14,8 @@ public:
     Q_INVOKABLE void setQuestionsAndAnswers(int index);
     Q_INVOKABLE QVariantMap getCurrentQuestion();
     Q_INVOKABLE QString getCurrentQuestionIndex();
+    Q_INVOKABLE void saveAnswer(QString answer);
+    Q_INVOKABLE QString getSavedAnswer();
     Q_INVOKABLE bool checkIfFirst();
     Q_INVOKABLE bool checkIfLast();
     Q_INVOKABLE void checkIfCorrect(QString answer);
@@ -27,6 +29,7 @@ private:
     QVariantList m_questions;
     int m_currentQuestionIndex = 0;
     int correctAnswersCount = 0;
+    QMap <int, QString> m_answers;
 };
 
 #endif // TESTMANAGER_H

@@ -40,8 +40,14 @@ Window {
     Connections {
         target: TM
         onCurrentQuestionIndexChanged: {
-            stackViewForQuestions.replace(createQuestionPage());
-        }
+                stackViewForQuestions.replace(
+                    Qt.resolvedUrl("QuestionPage.qml"),
+                    {
+                        questionprop: TM.getCurrentQuestion().question,
+                        answers: TM.getCurrentQuestion().answers
+                    }
+                );
+            }
     }
 }
 
