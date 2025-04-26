@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     database db;
-    db.setUserName("123");
     testmanager TM;
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/WIKI/Home.qml"));
