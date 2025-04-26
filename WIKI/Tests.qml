@@ -114,6 +114,7 @@ Rectangle {
                 TestInProcessWindow.closing.connect(function() {
                     stackViewForPages.pop();
                     stackViewForPages.pop();
+                    TM.clearEverything();
                     homeWindow.show();
                 })
                 TestInProcessWindow.show();

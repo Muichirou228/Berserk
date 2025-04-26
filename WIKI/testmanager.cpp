@@ -13,6 +13,54 @@ int testmanager::currentQuestionIndex() const {
     return m_currentQuestionIndex;
 }
 
+QString testmanager::getCurrentQuestionIndex() {
+    QString str = QString::number(m_currentQuestionIndex + 1);
+    return str;
+}
+
+void testmanager::clearEverything() {
+    m_questions.clear();
+    m_currentQuestionIndex = 0;
+    correctAnswersCount = 0;
+}
+
+void testmanager::plusIndex() {
+    if(m_currentQuestionIndex < m_questions.size() - 1) {
+        m_currentQuestionIndex++;
+        emit currentQuestionIndexChanged();
+    }
+}
+
+void testmanager::minusIndex() {
+    if(m_currentQuestionIndex > 0) {
+        m_currentQuestionIndex--;
+        emit currentQuestionIndexChanged(); // Важно испускать сигнал
+    }
+}
+
+bool testmanager::checkIfFirst() {
+    if (m_currentQuestionIndex == 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+bool testmanager::checkIfLast() {
+    if (m_currentQuestionIndex == m_questions.size() - 1) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+void testmanager::checkIfCorrect(QString answer) {
+    QVariantMap question = getCurrentQuestion();
+    if (question.value("correct", "").toString() == answer) {
+        correctAnswersCount++;
+    }
+}
+
 void testmanager::setQuestionsAndAnswers(int index) {
     if (index == 1) {
         QVariantMap question1;

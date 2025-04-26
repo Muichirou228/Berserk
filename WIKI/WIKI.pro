@@ -37,7 +37,9 @@ RESOURCES += \
         Tests.qml \
         TestRectangle.qml \
         TestInProcess.qml \
-        QuestionPage.qml
+        QuestionPage.qml \
+        backtest.png \
+        nexttest.png
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -69,6 +71,7 @@ DISTFILES += \
     Tests.qml \
     admin.png \
     back.png \
+    backtest.png \
     cardexample.png \
     cardsontable.png \
     cardstypes.png \
@@ -79,6 +82,7 @@ DISTFILES += \
     lessons.png \
     menu.png \
     movecard.png \
+    nexttest.png \
     opennotopencard.png \
     rules1.png \
     test.png \
