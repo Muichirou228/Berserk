@@ -5,6 +5,7 @@ import QtQuick.Controls.Basic
 import QtQuick.Window
 import QtQuick.Controls.Universal 2.15
 Page {
+    property int testIndex;
     property string questionprop: ""
     property var answers: []
     id: root
@@ -78,7 +79,10 @@ Page {
                     background: Rectangle {
                         color: "transparent"
                     }
-                    onClicked: TM.saveAnswer(modelData);
+                    onClicked: {
+                        TM.saveAnswer(modelData);
+                        testConfirm.visible = !TM.checkIfLast() && TM.checkIfAllAnswersAreSelected();
+                    }
                 }
             }
         }
@@ -151,6 +155,55 @@ Page {
                 }
                 onExited: {
                     nextrect.color = "gray";
+                }
+            }
+        }
+    }
+
+    Item {
+        id: testConfirm
+        width: 75
+        height: 75
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 50
+        visible: !TM.checkIfLast() && TM.checkIfAllAnswersAreSelected();
+        Rectangle {
+            color: "gray"
+            id: testConfirmrect
+            anchors.fill: parent
+            radius: 5
+            Image {
+                source: "../tick.png"
+                width: parent.width * 0.5
+                height: parent.height * 0.5
+                anchors.centerIn: parent
+            }
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: {
+                    var success = database.updateTestProcentage(testIndex, TM.correctVsIncorrect(), database.getUserName());
+                    if (success) {
+                        console.log("Successfuly changed");
+                        if (testIndex === 1) {
+                                database.setFirstTestProcent(TM.correctVsIncorrect().toString());
+                            } else if (testIndex === 2) {
+                                database.setSecondTestProcent(TM.correctVsIncorrect().toString());
+                            } else if (testIndex === 3) {
+                                database.setThirdTestProcent(TM.correctVsIncorrect().toString());
+                            }
+                        testWindow.close();
+                    }
+                     else {
+                        console.log("Error");
+                    }
+                }
+                onEntered: {
+                    testConfirmrect.color = "white";
+                }
+                onExited: {
+                    testConfirmrect.color = "gray";
                 }
             }
         }

@@ -32,6 +32,12 @@ void testmanager::plusIndex() {
     }
 }
 
+bool testmanager::checkIfAllAnswersAreSelected() {
+    if (m_answers.size() == m_questions.size()) {
+        return true;
+    } else return false;
+}
+
 void testmanager::minusIndex() {
     if(m_currentQuestionIndex > 0) {
         m_currentQuestionIndex--;
@@ -47,20 +53,26 @@ bool testmanager::checkIfFirst() {
     }
 }
 
+int testmanager::correctVsIncorrect() {
+    int score = 0;
+    for (int i = 0; i < m_questions.size(); ++i) {
+        const QVariantMap& question = m_questions.at(i).toMap();
+        QString correctAnswer = question["correct"].toString();
+        QString userAnswer = m_answers.value(i, "");
+
+        if (correctAnswer == userAnswer) {
+            score++;
+        }
+    }
+    qDebug() << "score = " << (score/m_questions.size()) * 100;
+    return (score*100)/m_questions.size();
+}
+
 bool testmanager::checkIfLast() {
     if (m_currentQuestionIndex == m_questions.size() - 1) {
         return false;
     } else {
         return true;
-    }
-}
-
-void testmanager::checkIfCorrect(QString answer) {
-    QVariantMap question = getCurrentQuestion();
-    if (question.value("correct", "").toString() == answer) {
-        correctAnswersCount++;
-    } else {
-        correctAnswersCount--;
     }
 }
 
@@ -89,7 +101,12 @@ void testmanager::setQuestionsAndAnswers(int index) {
         question3["answers"] = QStringList{"3", "4", "5", "6"};
         question3["correct"] = "6";
         m_questions.append(question3);
+        testIndex = 1;
     }
+}
+
+int testmanager::getTestIndex() {
+    return testIndex;
 }
 
 QVariantMap testmanager::getCurrentQuestion() {

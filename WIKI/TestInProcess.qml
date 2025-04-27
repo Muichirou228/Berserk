@@ -12,11 +12,12 @@ Window {
     visible: true
     color: "black"
     property string testName
-
+    property int index
     function createQuestionPage() {
         return Qt.createComponent("QuestionPage.qml").createObject(stackViewForQuestions, {
             questionprop: TM.getCurrentQuestion().question,
-            answers: TM.getCurrentQuestion().answers
+            answers: TM.getCurrentQuestion().answers,
+            testIndex: TM.getTestIndex()
         });
     }
 
@@ -44,7 +45,8 @@ Window {
                     Qt.resolvedUrl("QuestionPage.qml"),
                     {
                         questionprop: TM.getCurrentQuestion().question,
-                        answers: TM.getCurrentQuestion().answers
+                        answers: TM.getCurrentQuestion().answers,
+                        testIndex: TM.getTestIndex()
                     }
                 );
             }

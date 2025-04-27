@@ -23,7 +23,13 @@ public:
 
     Q_INVOKABLE QString getThirdTestProcent();
 
+    Q_INVOKABLE bool updateTestProcentage(int testIndex, int value, const QString &login);
+
     void setUserName(QString US);
+
+    Q_INVOKABLE void setFirstTestProcent(const QString &value);
+    Q_INVOKABLE void setSecondTestProcent(const QString &value);
+    Q_INVOKABLE void setThirdTestProcent(const QString &value);
 
 private:
     QSqlDatabase m_db;

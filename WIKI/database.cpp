@@ -104,6 +104,43 @@ bool database::enterUser (const QString &login, const QString &password) {
     }
 }
 
+bool database::updateTestProcentage(int testIndex, int value, const QString &login) {
+    QSqlQuery updateTest;
+    if (testIndex == 1) {
+        updateTest.prepare("UPDATE tests_info SET tests_info.test1_progress = :value WHERE tests_info.id = (SELECT id FROM accounts WHERE login = :login)");
+    } else if (testIndex == 2) {
+        updateTest.prepare("UPDATE tests_info SET tests_info.test2_progress = :value WHERE tests_info.id = (SELECT id FROM accounts WHERE login = :login)");
+    } else if (testIndex == 3) {
+        updateTest.prepare("UPDATE tests_info SET tests_info.test3_progress = :value WHERE tests_info.id = (SELECT id FROM accounts WHERE login = :login)");
+    }
+    updateTest.bindValue(":login", login);
+    updateTest.bindValue(":value", value);
+    if (!updateTest.exec()) {
+        qDebug() << "updateTest query failed:" << updateTest.lastError().text();
+        return false;
+    }
+
+    if (updateTest.numRowsAffected() <= 0) {
+        qDebug() << "No rows were affected, login might not exist";
+        return false;
+    }
+
+
+    return true;
+}
+
+void database::setFirstTestProcent(const QString &value) {
+    test1 = value;
+}
+
+void database::setSecondTestProcent(const QString &value) {
+    test2 = value;
+}
+
+void database::setThirdTestProcent(const QString &value) {
+    test3 = value;
+}
+
 QString database::getFirstTestProcent() {
     return test1;
 }
