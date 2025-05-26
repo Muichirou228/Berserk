@@ -23,6 +23,7 @@ void testmanager::clearEverything() {
     m_currentQuestionIndex = 0;
     correctAnswersCount = 0;
     m_answers.clear();
+    testIndex = 0;
 }
 
 void testmanager::plusIndex() {
@@ -102,6 +103,40 @@ void testmanager::setQuestionsAndAnswers(int index) {
         question3["correct"] = "6";
         m_questions.append(question3);
         testIndex = 1;
+    } else if (index == 2) {
+        QVariantMap question1;
+        question1["question"] = "ПЕННИСПЕНИС";
+        question1["answers"] = QStringList{"Россия", "Америка", "Япония", "Китай"};
+        question1["correct"] = "Россия";
+        m_questions.append(question1);
+        QVariantMap question2;
+        question2["question"] = "Сколько всего существует стихий в игре?";
+        question2["answers"] = QStringList{"3", "4", "5", "6"};
+        question2["correct"] = "5";
+        m_questions.append(question2);
+        QVariantMap question3;
+        question3["question"] = "Сколько всего существует редкостей карт в игре?";
+        question3["answers"] = QStringList{"3", "4", "5", "6"};
+        question3["correct"] = "6";
+        m_questions.append(question3);
+        testIndex = 2;
+    } else if (index == 3) {
+        QVariantMap question1;
+        question1["question"] = "ЖОПАЖОПА?";
+        question1["answers"] = QStringList{"Россия", "Америка", "Япония", "Китай"};
+        question1["correct"] = "Россия";
+        m_questions.append(question1);
+        QVariantMap question2;
+        question2["question"] = "Сколько всего существует стихий в игре?";
+        question2["answers"] = QStringList{"3", "4", "5", "6"};
+        question2["correct"] = "5";
+        m_questions.append(question2);
+        QVariantMap question3;
+        question3["question"] = "Сколько всего существует редкостей карт в игре?";
+        question3["answers"] = QStringList{"3", "4", "5", "6"};
+        question3["correct"] = "6";
+        m_questions.append(question3);
+        testIndex = 3;
     }
 }
 

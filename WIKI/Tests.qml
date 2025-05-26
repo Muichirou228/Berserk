@@ -104,7 +104,7 @@ Rectangle {
         width: parent.width * 0.7
         TestRectangle {
             id: firstTest
-            questionsCountProp: "10"
+            questionsCountProp: "3"
             testNameProp: "Тест <Начало>"
             onClicked: {
                 homeWindow.hide()
@@ -124,15 +124,41 @@ Rectangle {
         TestRectangle {
             id: secondTest
             anchors.top: firstTest.bottom
-            questionsCountProp: "10"
+            questionsCountProp: "3"
             testNameProp: "Тест <Игровой процесс>"
+            onClicked: {
+                homeWindow.hide()
+                TM.setQuestionsAndAnswers(2);
+                var component = Qt.createComponent("../TestInProcess.qml")
+                var TestInProcessWindow = component.createObject(null, {testName : "Игровой процесс"})
+                TestInProcessWindow.closing.connect(function() {
+                    stackViewForPages.pop();
+                    stackViewForPages.pop();
+                    TM.clearEverything();
+                    homeWindow.show();
+                })
+                TestInProcessWindow.show();
+            }
         }
 
         TestRectangle {
             id: thirdTest
             anchors.top: secondTest.bottom
-            questionsCountProp: "5"
+            questionsCountProp: "3"
             testNameProp: "Тест <Модификаторы>"
+            onClicked: {
+                homeWindow.hide()
+                TM.setQuestionsAndAnswers(3);
+                var component = Qt.createComponent("../TestInProcess.qml")
+                var TestInProcessWindow = component.createObject(null, {testName : "Модификаторы"})
+                TestInProcessWindow.closing.connect(function() {
+                    stackViewForPages.pop();
+                    stackViewForPages.pop();
+                    TM.clearEverything();
+                    homeWindow.show();
+                })
+                TestInProcessWindow.show();
+            }
         }
     }
 

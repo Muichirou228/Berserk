@@ -53,55 +53,67 @@ void database::setUserName(QString US) {
     userName = US;
 }
 
-bool database::enterUser (const QString &login, const QString &password) {
-    if (!m_db.isOpen()){
+bool database::enterUser(const QString &login, const QString &password) {
+    if (!m_db.isOpen()) {
         qDebug() << "DB is not open";
         return false;
     }
+
+    // Для SQL Server используем COLLATE
     QSqlQuery check;
-    check.prepare("SELECT COUNT(*) FROM accounts WHERE login = :login AND password = :password");
+    check.prepare(
+        "SELECT COUNT(*) FROM accounts "
+        "WHERE login = :login COLLATE SQL_Latin1_General_CP1_CS_AS "
+        "AND password = :password COLLATE SQL_Latin1_General_CP1_CS_AS"
+        );
     check.bindValue(":login", login);
     check.bindValue(":password", password);
+
     if (!check.exec() || !check.next()) {
         qDebug() << "Check failed:" << check.lastError().text();
         return false;
     }
+
     if (check.value(0).toInt() == 0) {
-        qDebug() << "This user does not exist";
+        qDebug() << "Invalid credentials or user doesn't exist";
         return false;
-    } else {
-        QSqlQuery username;
-        username.prepare("SELECT login FROM accounts WHERE login = :login");
-        username.bindValue(":login", login);
-
-        if (!username.exec()) {
-            qDebug() << "Username query failed:" << username.lastError().text();
-            return false;
-        }
-
-        if (!username.next()) {
-            qDebug() << "No user found after count check (race condition?)";
-            return false;
-        }
-
-        QSqlQuery testProcentage;
-        testProcentage.prepare("SELECT test1_progress, test2_progress, test3_progress FROM tests_info INNER JOIN accounts ON accounts.id = tests_info.id WHERE tests_info.id = (SELECT id FROM accounts WHERE login = :login)");
-        testProcentage.bindValue(":login", login);
-        if (!testProcentage.exec()) {
-            qDebug() << "TestProcentage query failed:" << username.lastError().text();
-            return false;
-        }
-
-        if (!testProcentage.next()) {
-            qDebug() << "ERROR with No info";
-            return false;
-        }
-        this->test1 = testProcentage.value(0).toString();
-        this->test2 = testProcentage.value(1).toString();
-        this->test3 = testProcentage.value(2).toString();
-        this->userName = username.value(0).toString();
-        return true;
     }
+
+    // Получаем логин с учетом регистра
+    QSqlQuery username;
+    username.prepare(
+        "SELECT login FROM accounts "
+        "WHERE login = :login COLLATE SQL_Latin1_General_CP1_CS_AS"
+        );
+    username.bindValue(":login", login);
+
+    if (!username.exec() || !username.next()) {
+        qDebug() << "Username query failed:" << username.lastError().text();
+        return false;
+    }
+
+    // Получаем прогресс тестов
+    QSqlQuery testProcentage;
+    testProcentage.prepare(
+        "SELECT test1_progress, test2_progress, test3_progress "
+        "FROM tests_info "
+        "WHERE id = ("
+        "    SELECT id FROM accounts "
+        "    WHERE login = :login COLLATE SQL_Latin1_General_CP1_CS_AS"
+        ")"
+        );
+    testProcentage.bindValue(":login", login);
+
+    if (!testProcentage.exec() || !testProcentage.next()) {
+        qDebug() << "Test percentage query failed:" << testProcentage.lastError().text();
+        return false;
+    }
+
+    this->test1 = testProcentage.value(0).toString();
+    this->test2 = testProcentage.value(1).toString();
+    this->test3 = testProcentage.value(2).toString();
+    this->userName = username.value(0).toString();
+    return true;
 }
 
 bool database::updateTestProcentage(int testIndex, int value, const QString &login) {
@@ -124,8 +136,6 @@ bool database::updateTestProcentage(int testIndex, int value, const QString &log
         qDebug() << "No rows were affected, login might not exist";
         return false;
     }
-
-
     return true;
 }
 
